@@ -9,6 +9,6 @@ namespace Player
     {
         IPlayerModel GetPlayerModel();
         IInputComponent GetInputComponent();
-        void UpdateView(InputData inputData);
+        void Move(float horizontal, float vertical);
     }
 }

@@ -9,6 +9,16 @@ namespace Inputs
         private InputScriptable inputScriptable;
         private float horizontalVal=0, verticalVal=0;
 
+        public float GetHorizontalVal
+        {
+            get { return horizontalVal; }
+        }
+
+        public float GetVerticalVal
+        {
+            get { return verticalVal; }
+        }
+
         public InputComponent(/*InputManager inputManager*/)
         {
             Debug.Log("[InputComponenet]");
@@ -21,13 +31,6 @@ namespace Inputs
             MoveB();
             MoveR();
             MoveL();
-
-            InputData inputData = new InputData();
-
-            inputData.horizontalVal = horizontalVal;
-            inputData.verticalVal = verticalVal;
-
-            return inputData;
         }
 
         void MoveF()

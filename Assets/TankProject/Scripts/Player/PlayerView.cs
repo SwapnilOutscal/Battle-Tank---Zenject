@@ -14,9 +14,10 @@ namespace Player
             this.playerController = playerController;
         }
 
-        public void OnUpdate(InputData inputData)
+        public void OnUpdate(float horizontal, float vertical)
         {
-            transform.Translate(inputData.verticalVal * Vector3.forward * playerController.GetPlayerModel().getSpeed() * Time.deltaTime);
+            transform.Translate(horizontal * Vector3.forward * playerController.GetPlayerModel().getSpeed() * Time.deltaTime);
+            transform.Rotate(vertical * Vector3.one * 3f * Time.deltaTime);
         }
     }
 }

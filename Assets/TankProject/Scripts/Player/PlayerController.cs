@@ -19,10 +19,10 @@ namespace Player
             playerView.SetPlayerController(this);
         }
 
-        public void UpdateView(InputData inputData)
+        public void Move(float horizontal, float vertical)
         {
             Debug.Log("[PlayerController] PC Update");
-            playerView.OnUpdate(inputData);
+            playerView.OnUpdate(horizontal, vertical);
         }
 
         public IInputComponent GetInputComponent()

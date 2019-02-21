@@ -37,7 +37,7 @@ namespace Inputs
             {
                 foreach (IPlayerController controller in playerDictionary.Keys)
                 {
-                    controller.UpdateView(playerDictionary[controller].OnUpdate());
+                    controller.UpdateView(playerDictionary[controller].);
                 }
             }
         }

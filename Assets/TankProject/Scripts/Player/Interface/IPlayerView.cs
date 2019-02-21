@@ -7,8 +7,6 @@ namespace Player
 {
     public interface IPlayerView
     {
-        void OnUpdate(InputData inputData);
-
-
+        void OnUpdate(float horizontal, float vertical);
     }
 }
