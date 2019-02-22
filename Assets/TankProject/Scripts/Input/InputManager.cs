@@ -13,19 +13,20 @@ namespace Inputs
         //[Inject]
         private InputListScriptable inputListScriptable;
 
-        public InputManager()
+        public InputManager(InputListScriptable inputListScriptable)
         {
             Debug.Log("[InputManager]");
-            //this.inputListScriptable = inputListScriptable;
+            this.inputListScriptable = inputListScriptable;
             playerDictionary = new Dictionary<IPlayerController, IInputComponent>();
         }
 
         public void AddPlayer(IPlayerController playerController, IInputComponent inputComponent)
         {
             playerDictionary.Add(playerController, inputComponent);
+            playerDictionary[playerController].AssignInputType(GetInputType());
         }
 
-        public InputScriptable GetInputType()
+        private InputScriptable GetInputType()
         {
             return inputListScriptable.inputList[Random.Range(0, inputListScriptable.inputList.Count)];
 
@@ -37,7 +38,9 @@ namespace Inputs
             {
                 foreach (IPlayerController controller in playerDictionary.Keys)
                 {
-                    controller.UpdateView(playerDictionary[controller].);
+                    playerDictionary[controller].OnUpdate();
+                    controller.Move(playerDictionary[controller].GetHorizontalVal(),
+                                    playerDictionary[controller].GetVerticalVal());
                 }
             }
         }

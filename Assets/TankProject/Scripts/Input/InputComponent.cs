@@ -9,20 +9,21 @@ namespace Inputs
         private InputScriptable inputScriptable;
         private float horizontalVal=0, verticalVal=0;
 
-        public float GetHorizontalVal
+
+
+        public float GetHorizontalVal()
         {
-            get { return horizontalVal; }
+            return horizontalVal;
         }
 
-        public float GetVerticalVal
+        public float GetVerticalVal()
         {
-            get { return verticalVal; }
+            return verticalVal;
         }
 
-        public InputComponent(/*InputManager inputManager*/)
+        public InputComponent()
         {
             Debug.Log("[InputComponenet]");
-            //inputScriptable = inputManager.GetInputType();
         }
 
         public void OnUpdate()
@@ -35,35 +36,40 @@ namespace Inputs
 
         void MoveF()
         {
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(inputScriptable.moveForward))
                 horizontalVal = 1;
-            else if (Input.GetKeyUp(KeyCode.W))
+            else if (Input.GetKeyUp(inputScriptable.moveForward))
                 horizontalVal = 0;
         }
 
         void MoveB()
         {
-            if (Input.GetKeyDown(KeyCode.S))
+            if (Input.GetKeyDown(inputScriptable.moveBackward))
                 horizontalVal = -1;
-            else if (Input.GetKeyUp(KeyCode.S))
+            else if (Input.GetKeyUp(inputScriptable.moveBackward))
                 horizontalVal = 0;
         }
 
         void MoveL()
         {
-            if (Input.GetKeyDown(KeyCode.A))
+            if (Input.GetKeyDown(inputScriptable.moveLeft))
                 verticalVal = -1;
-            else if (Input.GetKeyUp(KeyCode.A))
+            else if (Input.GetKeyUp(inputScriptable.moveLeft))
                 verticalVal = 0;
         }
 
         void MoveR()
         {
-            if (Input.GetKeyDown(KeyCode.D))
+            if (Input.GetKeyDown(inputScriptable.moveRight))
                 verticalVal = 1;
-            else if (Input.GetKeyUp(KeyCode.D))
+            else if (Input.GetKeyUp(inputScriptable.moveRight))
                 verticalVal = 0;
         }
 
+        public void AssignInputType(InputScriptable inputScriptable)
+        {
+            this.inputScriptable = inputScriptable;
+            Debug.Log("[InputComponenet]" + inputScriptable.name);
+        }
     }
 }

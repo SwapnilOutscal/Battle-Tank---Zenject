@@ -13,7 +13,7 @@ namespace Player
 
         public PlayerController(GameObject _playerView)
         {
-            this.playerModel = playerModel;
+            playerModel = new PlayerModel();
             playerView = GameObject.Instantiate(_playerView,Vector3.zero,Quaternion.identity).GetComponent<PlayerView>();
             inputComponent = new InputComponent();
             playerView.SetPlayerController(this);
@@ -21,7 +21,6 @@ namespace Player
 
         public void Move(float horizontal, float vertical)
         {
-            Debug.Log("[PlayerController] PC Update");
             playerView.OnUpdate(horizontal, vertical);
         }
 

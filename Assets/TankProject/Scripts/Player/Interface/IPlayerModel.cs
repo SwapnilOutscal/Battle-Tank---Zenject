@@ -8,5 +8,6 @@ namespace Player
     {
         int getSpeed();
         int getHealth();
+        int getRotSpeed();
     }
 }

@@ -7,7 +7,7 @@ namespace Inputs
 {
     public interface IInputManager
     {
-        InputScriptable GetInputType();
+        //InputScriptable GetInputType();
         void AddPlayer(IPlayerController playerController, IInputComponent inputComponent);
     }
 }

@@ -6,6 +6,9 @@ namespace Inputs
 {
     public interface IInputComponent
     {
+        void AssignInputType(InputScriptable inputScriptable);
+        float GetHorizontalVal();
+        float GetVerticalVal();
         void OnUpdate();
     }
 }
